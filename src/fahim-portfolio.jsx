@@ -368,8 +368,31 @@ function AboutSection({ setHovering }) {
           <p style={{ fontSize: 15, color: C.muted, lineHeight: 1.9, marginBottom: 16 }}>I'm <strong style={{ color: C.text }}>Md. Fahim Hossen</strong>, a passionate web developer with 3+ years of experience building digital solutions that matter. Based in Bangladesh.</p>
           <p style={{ fontSize: 15, color: C.muted, lineHeight: 1.9, marginBottom: 28 }}>I specialize in <strong style={{ color: C.accent }}>WordPress</strong>, <strong style={{ color: C.accent2 }}>React</strong>, and modern front-end technologies. I'm currently deepening my backend expertise with <strong style={{ color: C.accent3 }}>PHP & Laravel</strong>.</p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 32 }}>{[["📍","Location","Bangladesh"],["💼","Experience","3+ Years"],["🎓","Education","BSS in Economics"],["🌐","Languages","Bangla, English"]].map(([ic,l,v]) => (<div key={l} style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: "12px 16px", display: "flex", gap: 10, alignItems: "center" }}><span style={{ fontSize: 18 }}>{ic}</span><div><div style={{ fontSize: 10, color: C.muted, letterSpacing: "1px" }}>{l}</div><div style={{ fontSize: 13, fontWeight: 600, color: C.text }}>{v}</div></div></div>))}</div>
-          <div style={{ display: "flex", gap: 12 }}><button onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} style={{ background: C.grad, border: "none", borderRadius: 8, padding: "11px 24px", fontSize: 13, fontWeight: 700, color: "#000", cursor: "default", fontFamily: "'Syne'" }}>Download CV</button></div>
-        </div>
+<div style={{ display: "flex", gap: 12 }}>
+  <a 
+    href="/cv/Fahim - Resume.pdf" 
+    download="Md_Fahim_Hossen_CV.pdf"
+    onMouseEnter={() => setHovering(true)} 
+    onMouseLeave={() => setHovering(false)}
+    style={{ 
+      background: C.grad, 
+      border: "none", 
+      borderRadius: 8, 
+      padding: "11px 24px", 
+      fontSize: 13, 
+      fontWeight: 700, 
+      color: "#000", 
+      cursor: "pointer", 
+      fontFamily: "'Syne'", 
+      textDecoration: "none", 
+      display: "inline-flex", 
+      alignItems: "center", 
+      gap: 8 
+    }}
+  >
+    Download CV
+  </a>
+</div>        </div>
         <div style={{ opacity: inV ? 1 : 0, transform: inV ? "translateX(0)" : "translateX(30px)", transition: "all 0.8s ease 0.2s", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>{[["⚡","Performance","Sub-2s load times"],["🔒","Security","Safe & secure sites"],["📱","Responsive","Every screen size"],["🔍","SEO","Technical SEO built-in"],["♿","Accessible","WCAG compliant"],["🌍","Scalable","Grows with you"]].map(([ic,t,d]) => (<div key={t} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 12, padding: "20px 18px", cursor: "default", transition: "all 0.25s" }} onMouseOver={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.transform = "translateY(-3px)"; }} onMouseOut={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.transform = ""; }}><div style={{ fontSize: 22, marginBottom: 8 }}>{ic}</div><div style={{ fontSize: 13, fontWeight: 700, color: C.text, marginBottom: 4 }}>{t}</div><div style={{ fontSize: 11, color: C.muted, lineHeight: 1.6 }}>{d}</div></div>))}</div>
       </div>
     </section>
