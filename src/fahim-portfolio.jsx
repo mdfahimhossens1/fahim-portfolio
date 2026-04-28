@@ -146,6 +146,7 @@ export default function App() {
   const [preloaderDone, setPreloaderDone] = useState(false);
   const [cursor, setCursor] = useState({ x: -100, y: -100 });
   const [clicked, setClicked] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [hovering, setHovering] = useState(false);
   const [activeNav, setActiveNav] = useState("home");
   const [mobileMenu, setMobileMenu] = useState(false);
