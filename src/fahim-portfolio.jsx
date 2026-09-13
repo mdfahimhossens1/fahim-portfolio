@@ -7,18 +7,22 @@ import fahimImg from './assets/fahim_img.jpg';
 ═══════════════════════════════════════════════════════════ */
 
 const C = {
-  bg: "#050810",
-  bg2: "#080d1a",
-  card: "#0d1424",
-  border: "rgba(99,179,237,0.12)",
-  accent: "#63b3ed",
-  accent2: "#9f7aea",
-  accent3: "#68d391",
-  gold: "#f6c90e",
-  text: "#e8eaf0",
-  muted: "#6b7280",
-  grad: "linear-gradient(135deg, #63b3ed, #9f7aea)",
-  grad2: "linear-gradient(135deg, #9f7aea, #f6c90e)",
+  bg: "#0b1220",
+  bg2: "#10192d",
+  card: "rgba(18, 29, 52, 0.72)",
+  cardHover: "rgba(24, 39, 70, 0.88)",
+  border: "rgba(125, 211, 252, 0.16)",
+  borderHover: "rgba(125, 211, 252, 0.38)",
+  accent: "#38bdf8",
+  accent2: "#a78bfa",
+  accent3: "#34d399",
+  gold: "#fbbf24",
+  rose: "#f43f5e",
+  text: "#f8fafc",
+  muted: "#94a3b8",
+  grad: "linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%)",
+  grad2: "linear-gradient(135deg, #a78bfa 0%, #f472b6 50%, #fbbf24 100%)",
+  grad3: "linear-gradient(135deg, #34d399 0%, #38bdf8 100%)",
 };
 
 const TECHS = [
@@ -255,10 +259,10 @@ export default function App() {
 
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0}
-        ::selection{background:rgba(99,179,237,0.3);color:#fff}
-        ::-webkit-scrollbar{width:4px}
-        ::-webkit-scrollbar-track{background:#050810}
-        ::-webkit-scrollbar-thumb{background:#63b3ed;border-radius:2px}
+        ::selection{background:rgba(56,189,248,0.35);color:#fff}
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:#0b1220}
+        ::-webkit-scrollbar-thumb{background:#38bdf8;border-radius:3px}
         @keyframes spin{to{transform:rotate(360deg)}}
         @keyframes spinR{to{transform:rotate(-360deg)}}
         @keyframes loadBar{0%{width:0}100%{width:100%}}
@@ -266,17 +270,36 @@ export default function App() {
         @keyframes fadeIn{from{opacity:0}to{opacity:1}}
         @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(5deg)}}
         @keyframes floatR{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-16px) rotate(-5deg)}}
-        @keyframes pulse{0%,100%{opacity:0.3;transform:scale(1)}50%{opacity:0.7;transform:scale(1.08)}}
+        @keyframes pulse{0%,100%{opacity:0.35;transform:scale(1)}50%{opacity:0.75;transform:scale(1.08)}}
         @keyframes gradMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
         @keyframes scaleIn{from{transform:scale(0.85);opacity:0}to{transform:scale(1);opacity:1}}
         @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
         .desk-nav{display:flex!important}
         .mob-btn{display:none!important}
+        
+        /* Responsive Overrides & Centering */
         @media(max-width:1024px){
-          .hero-grid{grid-template-columns:1fr!important;text-align:center!important}
+          .hero-grid{grid-template-columns:1fr!important;text-align:center!important;gap:40px!important}
           .hero-btns{justify-content:center!important}
+          .hero-content{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
+          .hero-badge{margin:0 auto 20px auto!important;display:inline-flex!important}
+          .hero-typewriter{justify-content:center!important;width:100%!important}
+          .hero-stats{justify-content:center!important;text-align:center!important}
+          .about-grid{grid-template-columns:1fr!important;gap:40px!important}
+          .about-content{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
+          .about-heading{text-align:center!important}
+          .about-desc{text-align:center!important}
+          .about-info-grid{max-width:540px!important;margin:0 auto 28px auto!important;width:100%!important}
+          .about-btn-wrap{display:flex!important;justify-content:center!important;width:100%!important}
+          .about-features-grid{max-width:540px!important;margin:0 auto!important;width:100%!important}
         }
-        @media(max-width:900px){.desk-nav{display:none!important}.mob-btn{display:block!important}}
+        @media(max-width:900px){
+          .desk-nav{display:none!important}
+          .mob-btn{display:block!important}
+          .footer-inner{flex-direction:column!important;text-align:center!important;align-items:center!important;justify-content:center!important;gap:20px!important}
+          .footer-brand{text-align:center!important}
+          .footer-socials{justify-content:center!important;margin:0 auto!important}
+        }
         @media(max-width:768px){
           .hero-grid{grid-template-columns:1fr!important;text-align:center!important}
           .hero-btns{justify-content:center!important}
@@ -286,12 +309,17 @@ export default function App() {
           .contact-grid{grid-template-columns:1fr!important}
           .testi-grid{grid-template-columns:1fr!important}
           section{padding:60px 5%!important}
+          .about-grid{grid-template-columns:1fr!important}
+          .about-content{align-items:center!important;text-align:center!important}
         }
         @media(max-width:560px){
           .proj-grid{grid-template-columns:1fr!important}
           .svc-grid{grid-template-columns:1fr!important}
-          .hero-btns{flex-direction:column;align-items:stretch!important}
+          .hero-btns{flex-direction:column;align-items:stretch!important;width:100%!important;max-width:320px!important;margin:0 auto 36px auto!important}
           .hero-btns button,.hero-btns a{text-align:center}
+          .about-info-grid{grid-template-columns:1fr!important}
+          .about-features-grid{grid-template-columns:1fr!important}
+          .contact-inputs{grid-template-columns:1fr!important}
         }
         html{scroll-behavior:smooth}
         body{overflow-x:hidden}
@@ -301,15 +329,307 @@ export default function App() {
 }
 
 function BGCanvas() {
-  const lines = Array.from({ length: 14 }, (_, i) => i);
-  const floatingTechs = TECHS.slice(0, 10).map((t, i) => ({ ...t, x: 5 + (i * 9.5) % 92, y: 8 + (i * 17) % 80, size: 20 + (i % 3) * 8, delay: i * 0.6, dur: 4 + (i % 3) * 2, anim: i % 2 === 0 ? "float" : "floatR" }));
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animId;
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    // Particle nodes in 3D
+    const particleCount = window.innerWidth < 768 ? 75 : 120;
+    const colors = ["#38bdf8", "#818cf8", "#c084fc", "#34d399", "#fbbf24", "#f472b6"];
+
+    const particles = Array.from({ length: particleCount }, () => ({
+      x: (Math.random() - 0.5) * width * 1.5,
+      y: (Math.random() - 0.5) * height * 1.8,
+      z: Math.random() * 900 + 70,
+      size: Math.random() * 2.2 + 1.2,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      baseSpeed: Math.random() * 0.35 + 0.15,
+      pulse: Math.random() * Math.PI * 2,
+    }));
+
+    // Floating 3D wireframe polyhedra (Octahedrons & Cube)
+    const shapes = [
+      {
+        type: "octahedron",
+        x: width * 0.28,
+        y: -height * 0.15,
+        z: 320,
+        radius: 46,
+        color: "#38bdf8",
+        rotX: 0.3,
+        rotY: 0.5,
+        rotZ: 0,
+        speedX: 0.005,
+        speedY: 0.008,
+      },
+      {
+        type: "cube",
+        x: -width * 0.28,
+        y: height * 0.12,
+        z: 380,
+        radius: 38,
+        color: "#c084fc",
+        rotX: 0.8,
+        rotY: 0.2,
+        rotZ: 0.4,
+        speedX: 0.006,
+        speedY: 0.007,
+      },
+      {
+        type: "octahedron",
+        x: width * 0.22,
+        y: height * 0.35,
+        z: 280,
+        radius: 34,
+        color: "#34d399",
+        rotX: 0.2,
+        rotY: 0.9,
+        rotZ: 0.1,
+        speedX: 0.007,
+        speedY: 0.005,
+      }
+    ];
+
+    // Scroll tracking
+    let lastScrollY = window.scrollY;
+    let scrollVelocity = 0;
+
+    const onScroll = () => {
+      const currentScroll = window.scrollY;
+      const delta = currentScroll - lastScrollY;
+      scrollVelocity += delta * 0.25;
+      lastScrollY = currentScroll;
+    };
+
+    // Mouse tracking for 3D tilt
+    let targetTiltX = 0;
+    let targetTiltY = 0;
+    let tiltX = 0;
+    let tiltY = 0;
+
+    const onMouseMove = (e) => {
+      const mouseX = (e.clientX / width - 0.5) * 2;
+      const mouseY = (e.clientY / height - 0.5) * 2;
+      targetTiltX = mouseY * 0.15;
+      targetTiltY = mouseX * 0.18;
+    };
+
+    const onResize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    window.addEventListener("resize", onResize);
+
+    const fov = 420;
+    const cx = () => width / 2;
+    const cy = () => height / 2;
+
+    const render = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      // Smooth scroll velocity decay
+      scrollVelocity *= 0.92;
+      tiltX += (targetTiltX - tiltX) * 0.05;
+      tiltY += (targetTiltY - tiltY) * 0.05;
+
+      const centerX = cx();
+      const centerY = cy();
+
+      // Render 3D Particles
+      const cosY = Math.cos(tiltY);
+      const sinY = Math.sin(tiltY);
+      const cosX = Math.cos(tiltX);
+      const sinX = Math.sin(tiltX);
+
+      const projected = [];
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.pulse += 0.03;
+
+        // When scrolling down, scrollVelocity > 0 -> particles move downward
+        p.y += scrollVelocity * (0.85 + 240 / p.z) + p.baseSpeed;
+
+        // Wrap around bounds seamlessly
+        const boundY = height * 0.95;
+        if (p.y > boundY) p.y = -boundY;
+        if (p.y < -boundY) p.y = boundY;
+
+        // 3D rotation projection
+        const rx = p.x * cosY - p.z * sinY;
+        const rz = p.x * sinY + p.z * cosY;
+        const ry = p.y * cosX - rz * sinX;
+        const finalZ = p.y * sinX + rz * cosX;
+
+        if (finalZ + fov > 20) {
+          const scale = fov / (fov + finalZ);
+          const screenX = centerX + rx * scale;
+          const screenY = centerY + ry * scale;
+          const alpha = Math.min(1, Math.max(0.12, (1 - finalZ / 1100) * (0.6 + Math.sin(p.pulse) * 0.25)));
+
+          projected.push({ x: screenX, y: screenY, z: finalZ, color: p.color, alpha, size: p.size * scale });
+
+          // Draw particle
+          ctx.beginPath();
+          ctx.arc(screenX, screenY, Math.max(0.8, p.size * scale), 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = alpha;
+          ctx.fill();
+
+          // Subtle glow on larger particles
+          if (p.size * scale > 2.2) {
+            ctx.beginPath();
+            ctx.arc(screenX, screenY, p.size * scale * 2.2, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = alpha * 0.2;
+            ctx.fill();
+          }
+        }
+      }
+
+      // Draw 3D connection lines between nearby points
+      ctx.lineWidth = 0.6;
+      for (let i = 0; i < projected.length; i++) {
+        for (let j = i + 1; j < projected.length; j++) {
+          const p1 = projected[i];
+          const p2 = projected[j];
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 75 && Math.abs(p1.z - p2.z) < 180) {
+            const lineAlpha = (1 - dist / 75) * Math.min(p1.alpha, p2.alpha) * 0.32;
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = p1.color;
+            ctx.globalAlpha = lineAlpha;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw Floating 3D Geometric Polyhedra
+      shapes.forEach((s) => {
+        s.rotX += s.speedX + scrollVelocity * 0.003;
+        s.rotY += s.speedY + scrollVelocity * 0.004;
+
+        let rawVerts = [];
+        let edges = [];
+
+        if (s.type === "octahedron") {
+          rawVerts = [
+            [0, -s.radius, 0],
+            [s.radius, 0, 0],
+            [0, 0, s.radius],
+            [-s.radius, 0, 0],
+            [0, 0, -s.radius],
+            [0, s.radius, 0],
+          ];
+          edges = [
+            [0, 1], [0, 2], [0, 3], [0, 4],
+            [5, 1], [5, 2], [5, 3], [5, 4],
+            [1, 2], [2, 3], [3, 4], [4, 1]
+          ];
+        } else {
+          const r = s.radius * 0.7;
+          rawVerts = [
+            [-r, -r, -r], [r, -r, -r], [r, r, -r], [-r, r, -r],
+            [-r, -r, r], [r, -r, r], [r, r, r], [-r, r, r]
+          ];
+          edges = [
+            [0, 1], [1, 2], [2, 3], [3, 0],
+            [4, 5], [5, 6], [6, 7], [7, 4],
+            [0, 4], [1, 5], [2, 6], [3, 7]
+          ];
+        }
+
+        // Rotate vertices in 3D
+        const cX = Math.cos(s.rotX), sX = Math.sin(s.rotX);
+        const cY = Math.cos(s.rotY), sY = Math.sin(s.rotY);
+        const cZ = Math.cos(s.rotZ), sZ = Math.sin(s.rotZ);
+
+        const transformed = rawVerts.map(([vx, vy, vz]) => {
+          let x1 = vx * cY + vz * sY;
+          let y1 = vy;
+          let z1 = -vx * sY + vz * cY;
+
+          let x2 = x1;
+          let y2 = y1 * cX - z1 * sX;
+          let z2 = y1 * sX + z1 * cX;
+
+          let x3 = x2 * cZ - y2 * sZ;
+          let y3 = x2 * sZ + y2 * cZ;
+          let z3 = z2;
+
+          const worldX = s.x + x3;
+          const worldY = s.y + y3 + scrollVelocity * 4;
+          const worldZ = s.z + z3;
+
+          const scale = fov / (fov + worldZ);
+          return {
+            x: centerX + worldX * scale,
+            y: centerY + worldY * scale,
+            scale,
+          };
+        });
+
+        // Draw edges
+        ctx.lineWidth = 1.2;
+        ctx.strokeStyle = s.color;
+        edges.forEach(([i1, i2]) => {
+          const v1 = transformed[i1];
+          const v2 = transformed[i2];
+          ctx.beginPath();
+          ctx.moveTo(v1.x, v1.y);
+          ctx.lineTo(v2.x, v2.y);
+          ctx.globalAlpha = 0.28;
+          ctx.stroke();
+        });
+
+        // Draw glowing vertex nodes
+        transformed.forEach((v) => {
+          ctx.beginPath();
+          ctx.arc(v.x, v.y, 2.4 * v.scale, 0, Math.PI * 2);
+          ctx.fillStyle = s.color;
+          ctx.globalAlpha = 0.6;
+          ctx.fill();
+        });
+      });
+
+      ctx.globalAlpha = 1;
+      animId = requestAnimationFrame(render);
+    };
+
+    animId = requestAnimationFrame(render);
+
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
 
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none", overflow: "hidden" }}>
-      <div style={{ position: "absolute", top: "10%", left: "15%", width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(99,179,237,0.06) 0%, transparent 65%)", animation: "pulse 8s ease-in-out infinite" }} />
-      <div style={{ position: "absolute", top: "50%", right: "10%", width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(159,122,234,0.06) 0%, transparent 65%)", animation: "pulse 10s ease-in-out infinite 2s" }} />
-      {lines.map(i => (<div key={i} style={{ position: "absolute", top: 0, bottom: 0, left: `${i * 7.5}%`, width: 1, background: `linear-gradient(to bottom, transparent 0%, rgba(99,179,237,${0.03 + (i % 3) * 0.01}) 30%, rgba(159,122,234,${0.03 + (i % 2) * 0.015}) 60%, transparent 100%)`, transform: `skewX(${i % 2 === 0 ? -8 : 8}deg)` }} />))}
-      {floatingTechs.map((t, i) => (<div key={i} style={{ position: "absolute", left: `${t.x}%`, top: `${t.y}%`, animation: `${t.anim} ${t.dur}s ease-in-out infinite ${t.delay}s`, opacity: 0.12 }}><div style={{ width: t.size + 16, height: t.size + 16, borderRadius: "50%", border: `1px solid ${t.color}30`, display: "flex", alignItems: "center", justifyContent: "center", background: `${t.color}08` }}><span style={{ fontSize: t.size * 0.55, color: t.color, fontFamily: "'Fira Code'", fontWeight: 700 }}>{t.symbol}</span></div></div>))}
+      {/* Multi-tone soft dark ambient radial glow auras */}
+      <div style={{ position: "absolute", top: "-10%", left: "5%", width: 700, height: 700, borderRadius: "50%", background: "radial-gradient(circle, rgba(56,189,248,0.13) 0%, rgba(56,189,248,0.03) 45%, transparent 70%)", filter: "blur(40px)", animation: "pulse 10s ease-in-out infinite" }} />
+      <div style={{ position: "absolute", top: "35%", right: "-5%", width: 650, height: 650, borderRadius: "50%", background: "radial-gradient(circle, rgba(168,85,247,0.12) 0%, rgba(129,140,248,0.03) 45%, transparent 70%)", filter: "blur(45px)", animation: "pulse 12s ease-in-out infinite 3s" }} />
+      <div style={{ position: "absolute", top: "65%", left: "-8%", width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(52,211,153,0.09) 0%, transparent 65%)", filter: "blur(40px)", animation: "pulse 11s ease-in-out infinite 1.5s" }} />
+      <div style={{ position: "absolute", bottom: "-5%", right: "15%", width: 550, height: 550, borderRadius: "50%", background: "radial-gradient(circle, rgba(251,191,36,0.08) 0%, transparent 65%)", filter: "blur(40px)", animation: "pulse 9s ease-in-out infinite 4s" }} />
+
+      {/* Interactive 3D Canvas */}
+      <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />
     </div>
   );
 }
@@ -336,22 +656,22 @@ function HeroSection({ scrollTo, setHovering }) {
   return (
     <section id="home" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "60px 5%", position: "relative", zIndex: 1 }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 60, alignItems: "center" }} className="hero-grid">
-        <div style={{ animation: "fadeUp 0.9s ease 3.5s both" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "7px 16px", marginBottom: 28 }}><span style={{ width: 7, height: 7, borderRadius: "50%", background: C.accent3, animation: "pulse 2s ease-in-out infinite" }} /><div style={{ fontFamily: "'Fira Code'", fontSize: "clamp(15px,2vw,18px)", color: C.muted}}>Hi There! 👋🏼</div></div>
-          <h1 style={{ fontFamily: 'Fira Code', fontSize: "clamp(36px,5.5vw,50px)", fontWeight: 800, lineHeight: 1.08, marginBottom: 12, color: C.text }}>I Build <span style={{ background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundSize: "200% auto", animation: "gradMove 4s ease infinite" }}>Fast, Secure</span><br />& Professional<br /><span style={{ color: C.text }}>Websites</span></h1>
+        <div style={{ animation: "fadeUp 0.9s ease 3.5s both" }} className="hero-content">
+          <div className="hero-badge" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "7px 16px", marginBottom: 24 }}><span style={{ width: 7, height: 7, borderRadius: "50%", background: C.accent3, animation: "pulse 2s ease-in-out infinite" }} /><div style={{ fontFamily: "'Fira Code'", fontSize: "clamp(15px,2vw,18px)", color: C.muted}}>Hi There! 👋🏼</div></div>
+          <h1 className="hero-title" style={{ fontFamily: 'Fira Code', fontSize: "clamp(32px,5.2vw,50px)", fontWeight: 800, lineHeight: 1.1, marginBottom: 12, color: C.text }}>I Build <span style={{ background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundSize: "200% auto", animation: "gradMove 4s ease infinite" }}>Fast, Secure</span><br />& Professional<br /><span style={{ color: C.text }}>Websites</span></h1>
           <div style={{ fontFamily: "'DM Sans'", fontSize: "clamp(13px,1.5vw,16px)", color: C.muted, marginBottom: 6 }}>That Help Businesses Grow</div>
-          <div style={{ fontFamily: "'Fira Code'", fontSize: "clamp(13px,1.5vw,17px)", color: C.accent2, marginBottom: 24, height: 28, display: "flex", alignItems: "center", gap: 2 }}><span>&lt;</span><span>{typed}</span><span style={{ animation: "blink 1s step-end infinite", color: C.accent }}>/&gt;</span></div>
-          <p style={{ fontSize: "clamp(13px,1.3vw,15px)", color: C.muted, lineHeight: 1.85, maxWidth: 520, marginBottom: 36 }}>I'm <strong style={{ color: C.text }}>Md. Fahim Hossen</strong>, a Web Developer with <strong style={{ color: C.accent }}>3+ years of experience</strong> in building high-performance websites. I specialize in <strong style={{ color: C.accent2 }}>WordPress, React, Laravel</strong> and modern front-end technologies.</p>
+          <div className="hero-typewriter" style={{ fontFamily: "'Fira Code'", fontSize: "clamp(13px,1.5vw,17px)", color: C.accent2, marginBottom: 24, height: 28, display: "flex", alignItems: "center", gap: 2 }}><span>&lt;</span><span>{typed}</span><span style={{ animation: "blink 1s step-end infinite", color: C.accent }}>/&gt;</span></div>
+          <p className="hero-desc" style={{ fontSize: "clamp(13px,1.3vw,15px)", color: C.muted, lineHeight: 1.85, maxWidth: 520, marginBottom: 36 }}>I'm <strong style={{ color: C.text }}>Md. Fahim Hossen</strong>, a Web Developer with <strong style={{ color: C.accent }}>3+ years of experience</strong> in building high-performance websites. I specialize in <strong style={{ color: C.accent2 }}>WordPress, React, Laravel</strong> and modern front-end technologies.</p>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 48 }} className="hero-btns">
             <button onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} onClick={() => scrollTo("projects")} style={{ background: C.grad, border: "none", borderRadius: 10, padding: "13px 28px", fontSize: 14, fontWeight: 700, color: "#000", cursor: "default", fontFamily: "'Syne'" }}>View My Work →</button>
-            <button onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} onClick={() => scrollTo("contact")} style={{ background: "transparent", border: `1px solid rgba(99,179,237,0.35)`, borderRadius: 10, padding: "13px 28px", fontSize: 14, fontWeight: 600, color: C.text, cursor: "default", fontFamily: "'Syne'" }}>Hire Me</button>
+            <button onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} onClick={() => scrollTo("contact")} style={{ background: "transparent", border: `1px solid rgba(56,189,248,0.35)`, borderRadius: 10, padding: "13px 28px", fontSize: 14, fontWeight: 600, color: C.text, cursor: "default", fontFamily: "'Syne'" }}>Hire Me</button>
           </div>
-          <div style={{ display: "flex", gap: 32, flexWrap: "wrap" }}>{[["3+","Years Experience"],["50+","Projects Done"],["30+","Happy Clients"],["100%","Client Satisfaction"]].map(([v,l]) => (<div key={l}><div style={{ fontFamily: "'Syne'", fontSize: "clamp(22px,3vw,30px)", fontWeight: 800, background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{v}</div><div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>{l}</div></div>))}</div>
+          <div style={{ display: "flex", gap: 32, flexWrap: "wrap" }} className="hero-stats">{[["3+","Years Experience"],["50+","Projects Done"],["30+","Happy Clients"],["100%","Client Satisfaction"]].map(([v,l]) => (<div key={l}><div style={{ fontFamily: "'Syne'", fontSize: "clamp(22px,3vw,30px)", fontWeight: 800, background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{v}</div><div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>{l}</div></div>))}</div>
         </div>
-        <div style={{ display: "flex", justifyContent: "center", animation: "scaleIn 0.9s ease 3.8s both", position: "relative" }}>
-          <div style={{ position: "relative" }}><div style={{ width: 300, height: 300, borderRadius: "50%", background: C.grad, padding: 3 }}><div style={{ width: "100%", height: "100%", borderRadius: "50%", background: C.bg2, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}><img src={fahimImg} alt="Fahim" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} /></div></div><div style={{ position: "absolute", inset: -20, borderRadius: "50%", border: `1px dashed rgba(99,179,237,0.2)`, animation: "spin 20s linear infinite" }} /><div style={{ position: "absolute", inset: -40, borderRadius: "50%", border: `1px dashed rgba(159,122,234,0.12)`, animation: "spinR 30s linear infinite" }} />
-          {[{ label:"React", color:"#61DAFB", pos:{ top:-10, right:-20 } },{ label:"Laravel", color:"#FF2D20", pos:{ bottom:20, right:-40 } },{ label:"WordPress", color:"#21759B", pos:{ bottom:-10, left:-10 } },{ label:"PHP", color:"#777BB4", pos:{ top:60, left:-50 } }].map(b => (<div key={b.label} style={{ position: "absolute", ...b.pos, background: C.card, border: `1px solid ${b.color}40`, borderRadius: 8, padding: "6px 12px", fontSize: 11, fontFamily: "'Fira Code'", fontWeight: 600, color: b.color, whiteSpace: "nowrap", animation: "float 4s ease-in-out infinite" }}>{b.label}</div>))}
-          <div style={{ position: "absolute", top: -20, left: "50%", transform: "translateX(-50%)", background: "rgba(104,211,145,0.15)", border: `1px solid rgba(104,211,145,0.4)`, borderRadius: 100, padding: "5px 14px", fontSize: 10, fontFamily: "'Fira Code'", color: C.accent3, display: "flex", alignItems: "center", gap: 6 }}><span style={{ width: 6, height: 6, borderRadius: "50%", background: C.accent3, animation: "pulse 1.5s ease-in-out infinite" }} />Open to work</div></div>
+        <div className="hero-avatar-wrap" style={{ display: "flex", justifyContent: "center", animation: "scaleIn 0.9s ease 3.8s both", position: "relative", maxWidth: 360, margin: "0 auto", width: "100%" }}>
+          <div style={{ position: "relative" }}><div style={{ width: "min(280px, 72vw)", height: "min(280px, 72vw)", borderRadius: "50%", background: C.grad, padding: 3 }}><div style={{ width: "100%", height: "100%", borderRadius: "50%", background: C.bg2, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}><img src={fahimImg} alt="Fahim" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} /></div></div><div style={{ position: "absolute", inset: -14, borderRadius: "50%", border: `1px dashed rgba(56,189,248,0.25)`, animation: "spin 20s linear infinite", pointerEvents: "none" }} /><div style={{ position: "absolute", inset: -28, borderRadius: "50%", border: `1px dashed rgba(168,85,247,0.18)`, animation: "spinR 30s linear infinite", pointerEvents: "none" }} />
+          {[{ label:"React", color:"#61DAFB", pos:{ top:-8, right:-12 } },{ label:"Laravel", color:"#FF2D20", pos:{ bottom:20, right:-15 } },{ label:"WordPress", color:"#38bdf8", pos:{ bottom:-8, left:0 } },{ label:"PHP", color:"#a78bfa", pos:{ top:50, left:-18 } }].map(b => (<div key={b.label} style={{ position: "absolute", ...b.pos, background: C.card, border: `1px solid ${b.color}40`, borderRadius: 8, padding: "5px 10px", fontSize: 11, fontFamily: "'Fira Code'", fontWeight: 600, color: b.color, whiteSpace: "nowrap", animation: "float 4s ease-in-out infinite", zIndex: 2 }}>{b.label}</div>))}
+          <div style={{ position: "absolute", top: -16, left: "50%", transform: "translateX(-50%)", background: "rgba(52,211,153,0.16)", border: `1px solid rgba(52,211,153,0.45)`, borderRadius: 100, padding: "5px 14px", fontSize: 10, fontFamily: "'Fira Code'", color: C.accent3, display: "flex", alignItems: "center", gap: 6, zIndex: 2 }}><span style={{ width: 6, height: 6, borderRadius: "50%", background: C.accent3, animation: "pulse 1.5s ease-in-out infinite" }} />Open to work</div></div>
         </div>
       </div>
     </section>
@@ -362,39 +682,40 @@ function AboutSection({ setHovering }) {
   const [ref, inV] = useInView();
   return (
     <section id="about" ref={ref} style={{ padding: "100px 5%", position: "relative", zIndex: 1 }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }} className="hero-grid">
-        <div style={{ opacity: inV ? 1 : 0, transform: inV ? "translateX(0)" : "translateX(-30px)", transition: "all 0.8s ease" }}>
-          <SecLabel>About Me</SecLabel>
-          <h2 style={{ fontFamily: 'Fira Code', fontSize: "clamp(28px,4vw,48px)", fontWeight: 800, lineHeight: 1.15, marginBottom: 20, color: C.text }}>Passionate Developer<br /><span style={{ background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>from Bangladesh</span></h2>
-          <p style={{ fontSize: 15, color: C.muted, lineHeight: 1.9, marginBottom: 16 }}>I'm <strong style={{ color: C.text }}>Md. Fahim Hossen</strong>, a passionate web developer with 3+ years of experience building digital solutions that matter. Based in Bangladesh.</p>
-          <p style={{ fontSize: 15, color: C.muted, lineHeight: 1.9, marginBottom: 28 }}>I specialize in <strong style={{ color: C.accent }}>WordPress</strong>, <strong style={{ color: C.accent2 }}>React</strong>, and modern front-end technologies. I'm currently deepening my backend expertise with <strong style={{ color: C.accent3 }}>PHP & Laravel</strong>.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 32 }}>{[["📍","Location","Bangladesh"],["💼","Experience","3+ Years"],["🎓","Education","BSS in Economics"],["🌐","Languages","Bangla, English"]].map(([ic,l,v]) => (<div key={l} style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: "12px 16px", display: "flex", gap: 10, alignItems: "center" }}><span style={{ fontSize: 18 }}>{ic}</span><div><div style={{ fontSize: 10, color: C.muted, letterSpacing: "1px" }}>{l}</div><div style={{ fontSize: 13, fontWeight: 600, color: C.text }}>{v}</div></div></div>))}</div>
-<div style={{ display: "flex", gap: 12 }}>
-  <a 
-    href="/cv/Fahim - Resume.pdf" 
-    download="Md_Fahim_Hossen_CV.pdf"
-    onMouseEnter={() => setHovering(true)} 
-    onMouseLeave={() => setHovering(false)}
-    style={{ 
-      background: C.grad, 
-      border: "none", 
-      borderRadius: 8, 
-      padding: "11px 24px", 
-      fontSize: 13, 
-      fontWeight: 700, 
-      color: "#000", 
-      cursor: "pointer", 
-      fontFamily: "'Syne'", 
-      textDecoration: "none", 
-      display: "inline-flex", 
-      alignItems: "center", 
-      gap: 8 
-    }}
-  >
-    Download CV
-  </a>
-</div>        </div>
-        <div style={{ opacity: inV ? 1 : 0, transform: inV ? "translateX(0)" : "translateX(30px)", transition: "all 0.8s ease 0.2s", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>{[["⚡","Performance","Sub-2s load times"],["🔒","Security","Safe & secure sites"],["📱","Responsive","Every screen size"],["🔍","SEO","Technical SEO built-in"],["♿","Accessible","WCAG compliant"],["🌍","Scalable","Grows with you"]].map(([ic,t,d]) => (<div key={t} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 12, padding: "20px 18px", cursor: "default", transition: "all 0.25s" }} onMouseOver={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.transform = "translateY(-3px)"; }} onMouseOut={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.transform = ""; }}><div style={{ fontSize: 22, marginBottom: 8 }}>{ic}</div><div style={{ fontSize: 13, fontWeight: 700, color: C.text, marginBottom: 4 }}>{t}</div><div style={{ fontSize: 11, color: C.muted, lineHeight: 1.6 }}>{d}</div></div>))}</div>
+      <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }} className="about-grid">
+        <div style={{ opacity: inV ? 1 : 0, transform: inV ? "translateX(0)" : "translateX(-30px)", transition: "all 0.8s ease" }} className="about-content">
+          <div className="about-label" style={{ display: "flex", width: "100%" }}><SecLabel>About Me</SecLabel></div>
+          <h2 className="about-heading" style={{ fontFamily: 'Fira Code', fontSize: "clamp(28px,4vw,48px)", fontWeight: 800, lineHeight: 1.15, marginBottom: 20, color: C.text }}>Passionate Developer<br /><span style={{ background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>from Bangladesh</span></h2>
+          <p className="about-desc" style={{ fontSize: 15, color: C.muted, lineHeight: 1.9, marginBottom: 16 }}>I'm <strong style={{ color: C.text }}>Md. Fahim Hossen</strong>, a passionate web developer with 3+ years of experience building digital solutions that matter. Based in Bangladesh.</p>
+          <p className="about-desc" style={{ fontSize: 15, color: C.muted, lineHeight: 1.9, marginBottom: 28 }}>I specialize in <strong style={{ color: C.accent }}>WordPress</strong>, <strong style={{ color: C.accent2 }}>React</strong>, and modern front-end technologies. I'm currently deepening my backend expertise with <strong style={{ color: C.accent3 }}>PHP & Laravel</strong>.</p>
+          <div className="about-info-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 32 }}>{[["📍","Location","Bangladesh"],["💼","Experience","3+ Years"],["🎓","Education","BSS in Economics"],["🌐","Languages","Bangla, English"]].map(([ic,l,v]) => (<div key={l} style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: "12px 16px", display: "flex", gap: 10, alignItems: "center" }}><span style={{ fontSize: 18 }}>{ic}</span><div><div style={{ fontSize: 10, color: C.muted, letterSpacing: "1px" }}>{l}</div><div style={{ fontSize: 13, fontWeight: 600, color: C.text }}>{v}</div></div></div>))}</div>
+          <div className="about-btn-wrap" style={{ display: "flex", gap: 12 }}>
+            <a 
+              href="/cv/Fahim - Resume.pdf" 
+              download="Md_Fahim_Hossen_CV.pdf"
+              onMouseEnter={() => setHovering(true)} 
+              onMouseLeave={() => setHovering(false)}
+              style={{ 
+                background: C.grad, 
+                border: "none", 
+                borderRadius: 8, 
+                padding: "11px 24px", 
+                fontSize: 13, 
+                fontWeight: 700, 
+                color: "#000", 
+                cursor: "pointer", 
+                fontFamily: "'Syne'", 
+                textDecoration: "none", 
+                display: "inline-flex", 
+                alignItems: "center", 
+                gap: 8 
+              }}
+            >
+              Download CV
+            </a>
+          </div>
+        </div>
+        <div className="about-features-grid" style={{ opacity: inV ? 1 : 0, transform: inV ? "translateX(0)" : "translateX(30px)", transition: "all 0.8s ease 0.2s", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>{[["⚡","Performance","Sub-2s load times"],["🔒","Security","Safe & secure sites"],["📱","Responsive","Every screen size"],["🔍","SEO","Technical SEO built-in"],["♿","Accessible","WCAG compliant"],["🌍","Scalable","Grows with you"]].map(([ic,t,d]) => (<div key={t} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 12, padding: "20px 18px", cursor: "default", transition: "all 0.25s" }} onMouseOver={e => { e.currentTarget.style.borderColor = C.accent; e.currentTarget.style.transform = "translateY(-3px)"; }} onMouseOut={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.transform = ""; }}><div style={{ fontSize: 22, marginBottom: 8 }}>{ic}</div><div style={{ fontSize: 13, fontWeight: 700, color: C.text, marginBottom: 4 }}>{t}</div><div style={{ fontSize: 11, color: C.muted, lineHeight: 1.6 }}>{d}</div></div>))}</div>
       </div>
     </section>
   );
@@ -545,34 +866,38 @@ function FooterSection({ scrollTo, setHovering }) {
   return (
     <footer style={{ background: C.bg2, borderTop: `1px solid ${C.border}`, padding: "48px 5% 28px", position: "relative", zIndex: 1 }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20, marginBottom: 32 }}>
-          <div>
-            <div style={{ fontFamily: "'Syne'", fontWeight: 800, fontSize: 20, background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Md. Fahim Hossen</div>
-            <div style={{ fontFamily: "'Fira Code'", fontSize: 11, color: C.muted, marginTop: 2 }}>Full-Stack Web Developer · Bangladesh</div>
+        <div className="footer-inner" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24, marginBottom: 32 }}>
+          <div className="footer-brand">
+            <div style={{ fontFamily: "'Syne'", fontWeight: 800, fontSize: 22, background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Md. Fahim Hossen</div>
+            <div style={{ fontFamily: "'Fira Code'", fontSize: 12, color: C.muted, marginTop: 4 }}>Full-Stack Web Developer · Bangladesh</div>
           </div>
           {/* Social Media Icons */}
-          <div style={{ display: "flex", gap: 16 }}>
+          <div className="footer-socials" style={{ display: "flex", gap: 14 }}>
             <a href="https://www.facebook.com/mdfahim.hossensujon" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}
-              style={{ width: 36, height: 36, borderRadius: "50%", background: C.card, border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s", cursor: "default", color: C.text, textDecoration: "none" }}
+              style={{ width: 40, height: 40, borderRadius: "50%", background: C.card, border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s", cursor: "pointer", color: C.text, textDecoration: "none" }}
               onMouseOver={e => { e.currentTarget.style.borderColor = "#1877f2"; e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.color = "#1877f2"; }}
               onMouseOut={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.color = C.text; }}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
             </a>
             <a href="https://linkedin.com/in/mdfahimhossensujon" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}
-              style={{ width: 36, height: 36, borderRadius: "50%", background: C.card, border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s", cursor: "default", color: C.text, textDecoration: "none" }}
+              style={{ width: 40, height: 40, borderRadius: "50%", background: C.card, border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s", cursor: "pointer", color: C.text, textDecoration: "none" }}
               onMouseOver={e => { e.currentTarget.style.borderColor = "#0a66c2"; e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.color = "#0a66c2"; }}
               onMouseOut={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.color = C.text; }}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.68-1.68-1.68a1.68 1.68 0 0 0-1.68 1.68c0 .93.68 1.68 1.68 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
             </a>
             <a href="https://github.com/mdfahimhossens1" target="_blank" rel="noopener noreferrer" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}
-              style={{ width: 36, height: 36, borderRadius: "50%", background: C.card, border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s", cursor: "default", color: C.text, textDecoration: "none" }}
+              style={{ width: 40, height: 40, borderRadius: "50%", background: C.card, border: `1px solid ${C.border}`, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s", cursor: "pointer", color: C.text, textDecoration: "none" }}
               onMouseOver={e => { e.currentTarget.style.borderColor = "#fff"; e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.color = "#fff"; }}
               onMouseOut={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.color = C.text; }}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
             </a>
           </div>
         </div>
-
+        <div style={{ borderTop: `1px solid ${C.border}`, paddingTop: 22, display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
+          <p style={{ fontFamily: "'Fira Code'", fontSize: 12, color: C.muted }}>
+            Designed & Built by <span style={{ color: C.accent }}>Md. Fahim Hossen</span> · © {new Date().getFullYear()} All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
