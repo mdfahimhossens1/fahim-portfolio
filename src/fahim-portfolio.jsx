@@ -213,13 +213,11 @@ export default function App() {
 
       <BGCanvas />
 
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 500, padding: "0 5%", height: 68, display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(5,8,16,0.85)", backdropFilter: "blur(20px)", borderBottom: `1px solid ${C.border}` }}>
-        <div onClick={() => scrollTo("home")} style={{ cursor: "default", display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{ width: 38, height: 38, borderRadius: "50%", background: C.grad, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Syne'", fontWeight: 800, fontSize: 14, color: "#000" }}>FH</div>
-          <div>
-            <div style={{ fontFamily: "'Syne'", fontWeight: 700, fontSize: 15, color: C.text, lineHeight: 1 }}>Fahim Hossen</div>
-            <div style={{ fontFamily: "'Fira Code'", fontSize: 10, color: C.muted }}>Full-Stack Developer</div>
-          </div>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 500, padding: "0 5%", height: 68, display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(11,18,32,0.88)", backdropFilter: "blur(20px)", borderBottom: `1px solid ${C.border}` }}>
+        <div onClick={() => scrollTo("home")} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} style={{ cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 3, userSelect: "none" }}>
+          <span style={{ fontFamily: "'Fira Code', monospace", fontSize: 22, fontWeight: 700, color: C.accent, textShadow: "0 0 12px rgba(56,189,248,0.4)" }}>&lt;</span>
+          <span style={{ fontFamily: "'Fira Code', monospace", fontSize: 20, fontWeight: 800, background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", padding: "0 3px", letterSpacing: "0.5px" }}>fahim</span>
+          <span style={{ fontFamily: "'Fira Code', monospace", fontSize: 22, fontWeight: 700, color: C.accent2, textShadow: "0 0 12px rgba(167,139,250,0.4)" }}>&gt;</span>
         </div>
         <div style={{ display: "flex", gap: 4 }} className="desk-nav">
           {NAV.map(n => (
@@ -287,8 +285,10 @@ export default function App() {
           .hero-stats{justify-content:center!important;text-align:center!important}
           .about-grid{grid-template-columns:1fr!important;gap:40px!important}
           .about-content{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
-          .about-heading{text-align:center!important}
-          .about-desc{text-align:center!important}
+          .about-label{justify-content:center!important;display:flex!important;width:100%!important}
+          .about-sec-label{justify-content:center!important;margin:0 auto!important}
+          .about-heading{text-align:center!important;width:100%!important}
+          .about-desc{text-align:center!important;margin-left:auto!important;margin-right:auto!important}
           .about-info-grid{max-width:540px!important;margin:0 auto 28px auto!important;width:100%!important}
           .about-btn-wrap{display:flex!important;justify-content:center!important;width:100%!important}
           .about-features-grid{max-width:540px!important;margin:0 auto!important;width:100%!important}
@@ -301,7 +301,9 @@ export default function App() {
           .footer-socials{justify-content:center!important;margin:0 auto!important}
         }
         @media(max-width:768px){
-          .hero-grid{grid-template-columns:1fr!important;text-align:center!important}
+          .hero-grid{display:flex!important;flex-direction:column!important;text-align:center!important;gap:28px!important}
+          .hero-avatar-wrap{order:1!important;margin:0 auto 12px auto!important}
+          .hero-content{order:2!important;display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
           .hero-btns{justify-content:center!important}
           .proj-grid{grid-template-columns:repeat(2,1fr)!important}
           .skills-grid{grid-template-columns:1fr!important}
@@ -311,6 +313,11 @@ export default function App() {
           section{padding:60px 5%!important}
           .about-grid{grid-template-columns:1fr!important}
           .about-content{align-items:center!important;text-align:center!important}
+          .about-label{justify-content:center!important;display:flex!important;width:100%!important}
+          .about-sec-label{justify-content:center!important;margin:0 auto!important}
+          .about-heading{text-align:center!important;width:100%!important}
+          .about-desc{text-align:center!important;margin-left:auto!important;margin-right:auto!important}
+          .about-btn-wrap{justify-content:center!important;display:flex!important;width:100%!important}
         }
         @media(max-width:560px){
           .proj-grid{grid-template-columns:1fr!important}
@@ -684,7 +691,7 @@ function AboutSection({ setHovering }) {
     <section id="about" ref={ref} style={{ padding: "100px 5%", position: "relative", zIndex: 1 }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }} className="about-grid">
         <div style={{ opacity: inV ? 1 : 0, transform: inV ? "translateX(0)" : "translateX(-30px)", transition: "all 0.8s ease" }} className="about-content">
-          <div className="about-label" style={{ display: "flex", width: "100%" }}><SecLabel>About Me</SecLabel></div>
+          <div className="about-label" style={{ display: "flex", width: "100%" }}><SecLabel className="about-sec-label">About Me</SecLabel></div>
           <h2 className="about-heading" style={{ fontFamily: 'Fira Code', fontSize: "clamp(28px,4vw,48px)", fontWeight: 800, lineHeight: 1.15, marginBottom: 20, color: C.text }}>Passionate Developer<br /><span style={{ background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>from Bangladesh</span></h2>
           <p className="about-desc" style={{ fontSize: 15, color: C.muted, lineHeight: 1.9, marginBottom: 16 }}>I'm <strong style={{ color: C.text }}>Md. Fahim Hossen</strong>, a passionate web developer with 3+ years of experience building digital solutions that matter. Based in Bangladesh.</p>
           <p className="about-desc" style={{ fontSize: 15, color: C.muted, lineHeight: 1.9, marginBottom: 28 }}>I specialize in <strong style={{ color: C.accent }}>WordPress</strong>, <strong style={{ color: C.accent2 }}>React</strong>, and modern front-end technologies. I'm currently deepening my backend expertise with <strong style={{ color: C.accent3 }}>PHP & Laravel</strong>.</p>
@@ -867,9 +874,10 @@ function FooterSection({ scrollTo, setHovering }) {
     <footer style={{ background: C.bg2, borderTop: `1px solid ${C.border}`, padding: "48px 5% 28px", position: "relative", zIndex: 1 }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div className="footer-inner" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24, marginBottom: 32 }}>
-          <div className="footer-brand">
-            <div style={{ fontFamily: "'Syne'", fontWeight: 800, fontSize: 22, background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Md. Fahim Hossen</div>
-            <div style={{ fontFamily: "'Fira Code'", fontSize: 12, color: C.muted, marginTop: 4 }}>Full-Stack Web Developer · Bangladesh</div>
+          <div className="footer-brand" style={{ display: "inline-flex", alignItems: "center", gap: 3, cursor: "pointer", userSelect: "none" }} onClick={() => scrollTo("home")} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+            <span style={{ fontFamily: "'Fira Code', monospace", fontSize: 24, fontWeight: 700, color: C.accent, textShadow: "0 0 12px rgba(56,189,248,0.4)" }}>&lt;</span>
+            <span style={{ fontFamily: "'Fira Code', monospace", fontSize: 22, fontWeight: 800, background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", padding: "0 3px", letterSpacing: "0.5px" }}>fahim</span>
+            <span style={{ fontFamily: "'Fira Code', monospace", fontSize: 24, fontWeight: 700, color: C.accent2, textShadow: "0 0 12px rgba(167,139,250,0.4)" }}>&gt;</span>
           </div>
           {/* Social Media Icons */}
           <div className="footer-socials" style={{ display: "flex", gap: 14 }}>
@@ -895,7 +903,7 @@ function FooterSection({ scrollTo, setHovering }) {
         </div>
         <div style={{ borderTop: `1px solid ${C.border}`, paddingTop: 22, display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
           <p style={{ fontFamily: "'Fira Code'", fontSize: 12, color: C.muted }}>
-            Designed & Built by <span style={{ color: C.accent }}>Md. Fahim Hossen</span> · © {new Date().getFullYear()} All rights reserved.
+            Designed & Built by <span style={{ color: C.accent }}>&lt; fahim &gt;</span> · © {new Date().getFullYear()} All rights reserved.
           </p>
         </div>
       </div>
@@ -903,6 +911,23 @@ function FooterSection({ scrollTo, setHovering }) {
   );
 }
 
-function SecLabel({ children, center }) {
-  return (<div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12, justifyContent: center ? "center" : "flex-start" }}><span style={{ width: 24, height: 1.5, background: C.grad, display: "block" }} /><span style={{ fontFamily: "'Fira Code'", fontSize: 11, color: C.accent, letterSpacing: "2.5px", textTransform: "uppercase" }}>{children}</span><span style={{ width: 24, height: 1.5, background: C.grad, display: "block" }} /></div>);
+function SecLabel({ children, center, className = "" }) {
+  return (
+    <div
+      className={`sec-label ${center ? "sec-label-center" : ""} ${className}`}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        marginBottom: 12,
+        justifyContent: center ? "center" : "flex-start",
+      }}
+    >
+      <span style={{ width: 24, height: 1.5, background: C.grad, display: "block" }} />
+      <span style={{ fontFamily: "'Fira Code'", fontSize: 11, color: C.accent, letterSpacing: "2.5px", textTransform: "uppercase" }}>
+        {children}
+      </span>
+      <span style={{ width: 24, height: 1.5, background: C.grad, display: "block" }} />
+    </div>
+  );
 }
