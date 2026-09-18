@@ -1,3 +1,5 @@
-# https://www.robotstxt.org/robotstxt.html
+# Robots.txt for Fahim - Full-Stack Developer Portfolio
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://mdfahimhossen.dev/sitemap.xml

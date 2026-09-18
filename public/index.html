@@ -2,44 +2,137 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="fahim_img.jpg" />
+    <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#0b1220" />
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Md. Fahim Hossen – Full-Stack Web Developer | Portfolio</title>
+    <meta
+      name="title"
+      content="Md. Fahim Hossen – Full-Stack Web Developer | Portfolio"
+    />
     <meta
       name="description"
-      content="Personal portfolio website for Fahim showcasing skills, projects, and resume."
+      content="Official portfolio of Md. Fahim Hossen, a Full-Stack Web Developer with 3+ years of experience specializing in React, WordPress, Laravel, PHP, and high-performance modern web solutions."
     />
-    <meta property="og:title" content="Fahim - Personal Portfolio" />
-    <meta property="og:description" content="Personal portfolio website for Fahim showcasing skills, projects, and resume." />
-    <link rel="apple-touch-icon" href="fahim_img.jpg" />
+    <meta
+      name="keywords"
+      content="Md. Fahim Hossen, Fahim, Fahim Portfolio, Full-Stack Developer Bangladesh, React Developer, WordPress Developer, Laravel Developer, PHP Developer, Frontend Developer, Web Designer, Portfolio"
+    />
+    <meta name="author" content="Md. Fahim Hossen" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="language" content="English" />
+    <link rel="canonical" href="https://mdfahimhossen.dev/" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mdfahimhossen.dev/" />
+    <meta
+      property="og:title"
+      content="Md. Fahim Hossen – Full-Stack Web Developer"
+    />
+    <meta
+      property="og:description"
+      content="Explore projects, technical skills, and resume of Md. Fahim Hossen — building fast, secure, and professional websites."
+    />
+    <meta property="og:image" content="%PUBLIC_URL%/fahim_img.jpg" />
+    <meta property="og:image:alt" content="Md. Fahim Hossen - Full-Stack Developer" />
+    <meta property="og:site_name" content="Fahim Portfolio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://mdfahimhossen.dev/" />
+    <meta
+      name="twitter:title"
+      content="Md. Fahim Hossen – Full-Stack Web Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Explore projects, technical skills, and resume of Md. Fahim Hossen — building fast, secure, and professional websites."
+    />
+    <meta name="twitter:image" content="%PUBLIC_URL%/fahim_img.jpg" />
+
+    <!-- Schema.org JSON-LD Structured Data for Google Search -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://mdfahimhossen.dev/#person",
+          "name": "Md. Fahim Hossen",
+          "alternateName": ["Fahim", "Md. Fahim Hossen Sujon"],
+          "url": "https://mdfahimhossen.dev/",
+          "image": "https://mdfahimhossen.dev/fahim_img.jpg",
+          "jobTitle": "Full-Stack Web Developer",
+          "email": "mailto:mdfahimhossen.dev@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "Bangladesh"
+          },
+          "sameAs": [
+            "https://www.facebook.com/mdfahim.hossensujon",
+            "https://linkedin.com/in/mdfahimhossensujon",
+            "https://github.com/mdfahimhossens1"
+          ],
+          "knowsAbout": [
+            "Web Development",
+            "React.js",
+            "WordPress",
+            "Laravel",
+            "PHP",
+            "JavaScript",
+            "Tailwind CSS",
+            "Full-Stack Architecture",
+            "REST APIs",
+            "Search Engine Optimization (SEO)"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mdfahimhossen.dev/#website",
+          "url": "https://mdfahimhossen.dev/",
+          "name": "Fahim - Full-Stack Developer Portfolio",
+          "description": "Personal portfolio website for Md. Fahim Hossen showcasing web applications, client projects, technical skills, and resume.",
+          "author": {
+            "@id": "https://mdfahimhossen.dev/#person"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://mdfahimhossen.dev/#webpage",
+          "url": "https://mdfahimhossen.dev/",
+          "name": "Md. Fahim Hossen – Full-Stack Web Developer | Portfolio",
+          "isPartOf": {
+            "@id": "https://mdfahimhossen.dev/#website"
+          },
+          "about": {
+            "@id": "https://mdfahimhossen.dev/#person"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://mdfahimhossen.dev/fahim_img.jpg"
+          }
+        }
+      ]
+    }
+    </script>
+
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Fahim - Personal Portfolio</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

@@ -148,19 +148,15 @@ function ProtectInspect() {
 export default function App() {
   const [loaded, setLoaded] = useState(false);
   const [preloaderDone, setPreloaderDone] = useState(false);
-  const [cursor, setCursor] = useState({ x: -100, y: -100 });
   const [clicked, setClicked] = useState(false);
-  // eslint-disable-next-line no-unused-vars
   const [hovering, setHovering] = useState(false);
   const [activeNav, setActiveNav] = useState("home");
   const [mobileMenu, setMobileMenu] = useState(false);
   
   useEffect(() => {
-    const onMove = (e) => { setCursor({ x: e.clientX, y: e.clientY }); };
-    const onDown = () => { setClicked(true); setTimeout(() => setClicked(false), 300); };
-    window.addEventListener("mousemove", onMove);
+    const onDown = () => { setClicked(true); setTimeout(() => setClicked(false), 200); };
     window.addEventListener("mousedown", onDown);
-    return () => { window.removeEventListener("mousemove", onMove); window.removeEventListener("mousedown", onDown); };
+    return () => { window.removeEventListener("mousedown", onDown); };
   }, []);
   
   useEffect(() => {
@@ -209,7 +205,7 @@ export default function App() {
         </div>
       )}
 
-      <div style={{ position: "fixed", left: cursor.x - (clicked ? 8 : 4), top: cursor.y - (clicked ? 8 : 4), width: clicked ? 16 : 8, height: clicked ? 16 : 8, borderRadius: "50%", background: C.accent, pointerEvents: "none", zIndex: 9998, transition: "width 0.15s, height 0.15s, left 0.04s, top 0.04s", mixBlendMode: "screen" }} />
+      <CustomCursor hovering={hovering} clicked={clicked} />
 
       <BGCanvas />
 
@@ -274,6 +270,12 @@ export default function App() {
         @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
         .desk-nav{display:flex!important}
         .mob-btn{display:none!important}
+        
+        /* Custom Cursor - Strictly Desktop / Laptop fine pointer only */
+        .custom-cursor-container{display:block}
+        @media(max-width:1024px),(pointer:coarse),(hover:none){
+          .custom-cursor-container,.custom-cursor-dot{display:none!important}
+        }
         
         /* Responsive Overrides & Centering */
         @media(max-width:1024px){
@@ -928,6 +930,74 @@ function SecLabel({ children, center, className = "" }) {
         {children}
       </span>
       <span style={{ width: 24, height: 1.5, background: C.grad, display: "block" }} />
+    </div>
+  );
+}
+
+function CustomCursor({ hovering, clicked }) {
+  const cursorRef = useRef(null);
+
+  useEffect(() => {
+    // Only track if device supports fine pointer (mouse/trackpad on desktop/laptop)
+    if (typeof window === "undefined" || (window.matchMedia && !window.matchMedia("(pointer: fine)").matches)) {
+      return;
+    }
+
+    const onMove = (e) => {
+      if (cursorRef.current) {
+        // Immediate 0ms transform update directly on GPU layer - strictly zero lag
+        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+        if (cursorRef.current.style.opacity !== "1") {
+          cursorRef.current.style.opacity = "1";
+        }
+      }
+    };
+
+    const onLeave = () => {
+      if (cursorRef.current) {
+        cursorRef.current.style.opacity = "0";
+      }
+    };
+
+    window.addEventListener("mousemove", onMove, { passive: true });
+    document.addEventListener("mouseleave", onLeave);
+
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={cursorRef}
+      className="custom-cursor-container"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        pointerEvents: "none",
+        zIndex: 99999,
+        opacity: 0,
+        willChange: "transform",
+        transform: "translate3d(-100px, -100px, 0)",
+      }}
+    >
+      <div
+        className="custom-cursor-dot"
+        style={{
+          width: clicked ? 14 : hovering ? 24 : 8,
+          height: clicked ? 14 : hovering ? 24 : 8,
+          transform: "translate(-50%, -50%)",
+          borderRadius: "50%",
+          background: hovering ? "rgba(56, 189, 248, 0.45)" : C.accent,
+          border: hovering ? `1.5px solid ${C.accent}` : "none",
+          boxShadow: hovering ? "0 0 14px rgba(56,189,248,0.7)" : "0 0 8px rgba(56,189,248,0.5)",
+          mixBlendMode: "screen",
+          transition: "width 0.1s ease-out, height 0.1s ease-out, background 0.15s, border 0.15s, box-shadow 0.15s",
+          pointerEvents: "none",
+        }}
+      />
     </div>
   );
 }
